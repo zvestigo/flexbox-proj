@@ -103,6 +103,7 @@ html {
 
 body {
   font-family: 'Source Sans Pro', sans-serif;
+  color: #ffffff;
   padding: 2em;
   font-size: 1em;
   height: 100%;
@@ -110,29 +111,36 @@ body {
 }
 
 .wrapper {
-  /*add display:flex and set justify-content to space-between*/
   font-weight: 700;
   display: flex;
+  flex-flow: wrap;
   justify-content: space-between;
 }
 
+header, footer, main {
+    display: flex;
+    flex-flow: wrap;
+    width: 100%;
+}
+
+main {
+    height: 250px;
+    align-content: center;
+}
+
+header, footer {
+    height: 80px;
+}
+
 .div-1, .div-2, .div-3 {
-  /*give the divs a width of 30%, add display:flex, set justify-content and align-items to center*/
-  color: #ffffff;
   line-height: 1.5em;
   font-size: 1.45em;
   background-color: #222222;
   height: 300px;
-  width: 30%;
-  padding: 0 1.3em;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.div-2 {
-    border-left: solid .125em #555555;
-    border-right: solid .125em #555555;
 }
 
 
@@ -217,7 +225,23 @@ body {
    Modify as content requires.
    ========================================================================== */
 
-@media print,
+   @media (min-width: 768px) {
+       .div-1, .div-2, .div-3 {
+           width: 50%;
+       }
+       
+       .div-3 {
+           align-content: center;
+       }
+   }
+
+   @media (min-width: 1200px) {
+       .div-1, .div-2, .div-3 {
+           width: 30%;
+       }
+   }
+
+   @media print,
        (-webkit-min-device-pixel-ratio: 1.25),
        (min-resolution: 1.25dppx),
        (min-resolution: 120dpi) {
